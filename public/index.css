@@ -137,3 +137,65 @@ nav {
     color: white;
     width: 10%;
 }
+
+/* Top Section Style*/
+
+#pizza-header {
+    padding: 15%;
+    background-image: url("./pizza-black-white.jpg");
+    background-repeat: no-repeat;
+    color: red;
+    background-position: bottom;
+}
+
+
+/* 6 Images Section Styling*/
+
+#six-images {
+   display: flex;
+   flex-wrap: wrap;
+   
+}
+
+#six-images div {
+   width: 33%;
+   padding: 3%;
+}
+
+#six-images div p {
+   text-align: left;
+}
+
+#six-images div button {
+   text-align: left;
+   background-color: red;
+   color: white;
+   padding: 2%;
+   font-size: 1rem;
+}
+
+/* Pizza Form Styling*/
+
+#pizza-form {
+   margin-top: 10%;
+   color:white;
+   background-color: red;
+   padding: 3%;
+   margin: 8% 15%;
+}
+
+#pizza-form div {
+   margin: 1%;
+}
+
+#pizza-form button {
+   background-color: black;
+}
+
+.errors {
+   color: black;
+}
+
+.toppings {
+   margin: 0 2%;    
+}

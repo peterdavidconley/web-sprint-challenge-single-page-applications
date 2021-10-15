@@ -1,7 +1,9 @@
  import * as yup from 'yup'
  
- function schema = yup.object().shape({
- 
+const schema = yup.object().shape({
+
+    'name-input': yup
+    .string()
 
 })
 

@@ -4,8 +4,14 @@ function PizzaForm () {
 
     return(
         <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <form>
-                <label>
+                <label>Name: 
                     <input
                     type='text'
                     />

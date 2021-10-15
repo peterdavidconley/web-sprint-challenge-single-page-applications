@@ -10,6 +10,17 @@ import axios from 'axios'
 const App = () => {
   return (
     <div>
+      <header>
+      <nav>
+          <div class="logo">
+              <h2>Lambda Eats</h2>
+          </div>
+          <div class="links">
+          <a href="/">Home</a>
+          <a href="/pizza">Order</a>
+          </div>
+      </nav>
+    </header>
       <Switch>
         <Route path='/pizza'>
           <PizzaForm />

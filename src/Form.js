@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function PizzaForm () {
+function PizzaForm (props) {
+
+    const { values, change, submit, disabled, errors  } = props
+
+    const onSubmit = event => {
+        event.preventDefault()
+        submit()
+    }
+
+    const onChange = event => {
+        const { name, value, checked, type} = event.target
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change( name, valueToUse )
+    }
 
     return(
         <div className='form-container'>
         <center>
-        <form id='pizza-form' >
+        <form id='pizza-form' onSubmit={onSubmit}>
             <div className='errors'>
-                {/* <div>{errors.size}</div>
+                <div>{errors.size}</div>
                 <div>{errors['name-input']}</div>
                 <div>{errors['special-text']}</div>
                 <div>{errors.pepperoni}</div>
-                <div>{errors.onions}</div>
-                <div>{errors.bacon}</div>
-                <div>{errors.olives}</div> */}
+                <div>{errors['chicken-fingers']}</div>
+                <div>{errors.peppers}</div>
+                <div>{errors.mushrooms}</div>
             </div>
             <div><h3>Build your own pizza</h3></div>
             <div>
@@ -22,8 +35,8 @@ function PizzaForm () {
                     <select 
                     name="size" 
                     id="size-dropdown"
-                    //onChange={onChange}
-                    //value={values.size}
+                    onChange={onChange}
+                    value={values.size}
                     >
                         <option value=''>- Select an option -</option>
                         <option value='small'>Small</option>
@@ -39,49 +52,49 @@ function PizzaForm () {
                     <input
                     type='checkbox'
                     name="pepperoni"
-                    //onChange={onChange}
-                    //value={values.pepperoni}
+                    onChange={onChange}
+                    value={values.pepperoni}
                     />
                 </label>
                 
                 
-                <label className='toppings'>Olives:
+                <label className='toppings'>Chicken Fingers:
                     <input
                     type='checkbox'
-                    name='olives'
-                    //onChange={onChange}
-                    //value={values.olives}
+                    name='chicken-fingers'
+                    onChange={onChange}
+                    value={values['chicken-fingers']}
                     />
                 </label>
                 
                 
-                <label className='toppings'>Bacon:
+                <label className='toppings'>Peppers:
                     <input
                     type='checkbox'
-                    name='bacon'
-                    //onChange={onChange}
-                    //value={values.bacon}
+                    name='peppers'
+                    onChange={onChange}
+                    value={values.peppers}
                     />
                 </label>
                 
-                <label className='toppings'>Onions:
+                <label className='toppings'>Mushrooms:
                     <input
                     type='checkbox'
-                    name='onions'
-                    //onChange={onChange}
-                    //value={values.onions}
+                    name='mushrooms'
+                    onChange={onChange}
+                    value={values.mushrooms}
                     />
                 </label>
                 
             </div>
             <div>
-                <label>Name (required): 
+                <label>Name: 
                     <input 
                     id="name-input"
                     name="name-input"
                     type='text'
-                    //onChange={onChange}
-                    //value={values.['name-input']}
+                    onChange={onChange}
+                    value={values['name-input']}
                     />
                 </label>
             </div>
@@ -91,13 +104,13 @@ function PizzaForm () {
                     type='text'
                     id="special-text"
                     name="special-text"
-                    //onChange={onChange}
-                    //value={values.['special-text']}
+                    onChange={onChange}
+                    value={values['special-text']}
                     />
                 </label>
             </div>
             <div>
-                <button id="order-button" >Add to Order</button>
+                <button id="order-button" disabled={disabled}>Add to Order</button>
             </div>
 
         </form>
